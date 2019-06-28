@@ -1,20 +1,9 @@
-pipeline {
-    agent any
-    stages {
-        stage('---clean---') {
-            steps {
-                sh "mvn clean"
-            }
-        }
-        stage('--test--') {
-            steps {
-                sh "mvn test"
-            }
-        }
-        stage('--package--') {
-            steps {
-                sh "mvn package"
-            }
-        }
+node{
+    stage('SCM CheckOut'){
+        git 'https://github.com/mramesh2993/mastertwo.git'
+    }
+    stage('Build'){
+        def mvnHome = tool name: 'mvn3.3', type: 'maven'
+        sh "$mvnHome/bin/mvn package"
     }
 }
