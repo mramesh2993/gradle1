@@ -9,4 +9,5 @@ node{
     stage('move to artifactory')
     {
         sh "cp -r /var/lib/jenkins/workspace/firstpipe/target/*.war  /tmp/sample/"
+    }
 }
