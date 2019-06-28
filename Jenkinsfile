@@ -6,4 +6,7 @@ node{
         def mvnHome = tool name: 'mvn3.3', type: 'maven'
         sh "$mvnHome/bin/mvn package"
     }
+    stage('move to artifactory')
+    {
+        sh "cp -r /var/lib/jenkins/workspace/firstpipe/target/*.war  /tmp/sample/"
 }
