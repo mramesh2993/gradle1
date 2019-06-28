@@ -10,4 +10,8 @@ node{
     {
         sh "cp -r /var/lib/jenkins/workspace/firstpipe/target/*.war  /tmp/sample/"
     }
+    stage('Deploy')
+    {
+        sh "cp -r /tmp/sample/*.war /opt/apache-tomcat-8.5.42/webapps/"
+    }
 }
