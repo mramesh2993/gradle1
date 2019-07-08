@@ -1,3 +1,9 @@
+properties([
+    parameter([
+        string(defaultValue:'firstvalue', name:'FirstName'),
+        string(name:'age')
+        ])
+    ])
 node{
     stage('SCM CheckOut'){
         git 'https://github.com/mramesh2993/mastertwo.git'
