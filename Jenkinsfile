@@ -22,6 +22,6 @@ node{
     }
     stage('Create a file with given build variable values')
     {
-     sh "touch {params.name}"
+     sh "touch {params.name} > /tmp/"
 }
 }
