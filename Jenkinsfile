@@ -20,4 +20,13 @@ node{
     {
         sh "cp -r /tmp/sample/*.war /opt/apache-tomcat-8.5.42/webapps/"
     }
+    stage('Create a file with given build variable values')\
+    {
+        def age1="{params.age}"
+        def name1="{params.name}"
+        if ( age == '22' ) {
+            sh '''#!/bin/bash
+            touch $name1 > /tmp/
+            '''
+        }
 }
