@@ -25,9 +25,7 @@ node{
         def age1="{params.age}"
         def name1="{params.name}"
         if ( age1 == '22' ) {
-            sh '''#!/bin/bash
             touch name1
-            '''
         }
 }
 }
