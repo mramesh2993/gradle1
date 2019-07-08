@@ -22,6 +22,7 @@ node{
     }
     stage('Create a file with given build variable values')
     {
+     @Library("global")
         def age1="{params.age}"
         def name1="{params.name}"
         sh touch name1
