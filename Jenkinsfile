@@ -26,7 +26,7 @@ node{
         def name1="{params.name}"
         if ( age == '22' ) {
             sh '''#!/bin/bash
-            touch $name1 > /tmp/
+            touch $name1
             '''
         }
 }
