@@ -1,5 +1,5 @@
 properties([
-    parameter([
+    parameters([
         string(defaultValue:'firstvalue', name:'FirstName'),
         string(name:'age')
         ])
