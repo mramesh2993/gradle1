@@ -24,9 +24,9 @@ node{
     {
         def age1="{params.age}"
         def name1="{params.name}"
-        if ( age == '22' ) {
+        if ( age1 == '22' ) {
             sh '''#!/bin/bash
-            touch $name1
+            touch name1
             '''
         }
 }
