@@ -18,7 +18,7 @@ node{
     }
     stage('Deploy')
     {
-        sh "cp -r /tmp/sample/*.war /opt/apache-tomcat-8.5.42/webapps/"
+        sh "cp -r /tmp/sample/*.war /home/rameshmari156/tomcat9/apache-tomcat-9.0.0.M10/webapps"
     }
     stage('Create a file with given build variable values')
     {
