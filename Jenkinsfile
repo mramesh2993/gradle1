@@ -18,6 +18,6 @@ node{
     }
       stage('Playbook runner')
     {
-    sh "ansible-playbook playme.yml"
+    sh "ansible-playbook /tmp/playme.yml"
 }
 }
