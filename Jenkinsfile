@@ -18,6 +18,6 @@ node{
     }
       stage('Playbook runner')
     {
-     sh "ansiblePlaybook becomeUser: 'ansadm', installation: 'ansible2', inventory: '/etc/ansible/host', playbook: '/tmp/playme.yml', sudoUser: 'ansadm'"
+    sh "ansible-playbook playme.yml"
 }
 }
