@@ -22,6 +22,6 @@ node{
     }
     stage('Create a file with given build variable values')
     {
-     sh "touch {params.name} > /tmp/"
+     sh "ansiblePlaybook becomeUser: 'ansadm', installation: 'ansible2', inventory: '/etc/ansible/host', playbook: '/tmp/playme.yml', sudoUser: 'ansadm'"
 }
 }
