@@ -16,11 +16,7 @@ node{
     {
         sh "cp -r /var/lib/jenkins/workspace/one/target/*.war  /tmp/sample/"
     }
-    stage('Deploy')
-    {
-        sh "cp -r /tmp/sample/*.war /home/rameshmari156/tomcat9/apache-tomcat-9.0.0.M10/webapps"
-    }
-    stage('Create a file with given build variable values')
+      stage('Playbook runner')
     {
      sh "ansiblePlaybook becomeUser: 'ansadm', installation: 'ansible2', inventory: '/etc/ansible/host', playbook: '/tmp/playme.yml', sudoUser: 'ansadm'"
 }
