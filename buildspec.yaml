@@ -9,6 +9,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
+      - aws s3 sync target/WebApp.jar s3://jackpandi/
 artifacts:
   files:
-    - aws s3 sync target/WebApp.jar s3://jackpandi/
+    - '**/*'
