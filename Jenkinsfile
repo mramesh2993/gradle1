@@ -1,23 +1,17 @@
-properties([
-    parameters([
-        string(defaultValue:'firstvalue', name:'FirstName'),
-        string(name:'age')
-        ])
-    ])
 node{
     stage('SCM CheckOut'){
-        git 'https://github.com/mramesh2993/mastertwo.git'
+        git 'https://github.com/mramesh2993/containerDeploy.git'
     }
     stage('Build'){
         def mvnHome = tool name: 'mvn3.3', type: 'maven'
         sh "$mvnHome/bin/mvn package"
     }
-    stage('move to artifactory')
+    stage('move the artifactory to the ansible control server')
     {
-        sh "cp -r /var/lib/jenkins/workspace/one/target/*.war  /tmp/sample/"
+        sshPublisher(publishers: [sshPublisherDesc(configName: 'ansiblehost', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//opt//playbook', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'webapp/target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
     }
       stage('Playbook runner')
     {
-    sh "ansible-playbook /tmp/playme.yml"
+    sshPublisher(publishers: [sshPublisherDesc(configName: 'ansiblehost', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '/opt/playbook/copyplayboom.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 }
 }
